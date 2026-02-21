@@ -8,6 +8,18 @@
     },
     {
       "path": "./apps/web"
+    },
+    {
+      "path": "./apps/webs/web-e2e"
+    },
+    {
+      "path": "./apps/webs/web"
+    },
+    {
+      "path": "./apps/admins/admin-e2e"
+    },
+    {
+      "path": "./apps/admins/admin"
     }
   ]
 }

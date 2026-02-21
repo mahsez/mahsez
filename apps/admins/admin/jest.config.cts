@@ -5,13 +5,13 @@ const createJestConfig = nextJest({
 });
 
 const config = {
-  displayName: '@mahsez/web',
-  preset: '../../jest.preset.js',
+  displayName: '@mahsez/admin',
+  preset: '../../../jest.preset.js',
   transform: {
     '^(?!.*\\.(js|jsx|ts|tsx|css|json)$)': '@nx/react/plugins/jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../coverage/apps/web',
+  coverageDirectory: '../../../coverage/apps/admins/admin',
   testEnvironment: 'jsdom',
 };
 
