@@ -47,3 +47,4 @@ out
 
 test-output
 .vercel
+.env*.local
