@@ -2,7 +2,8 @@
 
 - Nx workspace = npx nx-create-workspace@latest mahsez --preset=next --packagemanager=pnpm
 - Create app = npx nx g @nx/next apps/webs/web
-- 
+- nx dev my-app
+- nx build my-app
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
