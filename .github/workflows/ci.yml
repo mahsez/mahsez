@@ -11,22 +11,21 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-node@v3
         with:
           node-version: 20
-          cache: "npm"
+          cache: 'npm'
 
       - run: npm install
 
-      - run: npx nx affected --target=build --parallel=3
-
-      # - run: npm nx affected --target=test
+      - run: npx nx affected --target=build --base=origin/main --parallel=3
 
       - run: npx nx deploy web
 
-
-
+      # - run: npm nx affected --target=test
 # name: Mahsez CI/CD
 # on:
 #   push:
