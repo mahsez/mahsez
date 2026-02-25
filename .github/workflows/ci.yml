@@ -23,7 +23,7 @@ jobs:
 
       - run: npx nx affected --target=build --base=origin/main --parallel=3
 
-      - run: npx nx deploy web
+      - run: npx vercel --prod --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }}
 
       # - run: npm nx affected --target=test
 # name: Mahsez CI/CD
