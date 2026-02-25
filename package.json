@@ -57,6 +57,6 @@
   "workspaces": [
     "apps/*",
     "apps/webs/*",
-    "apps/admins/*",
+    "apps/admins/*"
   ]
 }
