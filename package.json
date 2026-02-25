@@ -58,6 +58,5 @@
     "apps/*",
     "apps/webs/*",
     "apps/admins/*",
-    "web2"
   ]
 }

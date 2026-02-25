@@ -19,7 +19,7 @@ jobs:
 
       - run: npm install
 
-      - run: npm nx affected --target=build --parallel=3
+      - run: npx nx affected --target=build --parallel=3
 
       # - run: npm nx affected --target=test
 
