@@ -19,11 +19,11 @@ jobs:
           node-version: 20
           cache: 'npm'
 
-      - run: npm install
+      - run: npm ci
 
       - run: npx nx affected --target=build --base=origin/main --parallel=3
 
-      - run: npx vercel --prod --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }}
+      - run: npx vercel --prod --yes --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }}
 
       # - run: npm nx affected --target=test
 # name: Mahsez CI/CD
