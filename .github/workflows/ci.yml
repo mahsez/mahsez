@@ -26,12 +26,15 @@ jobs:
       # Diploy Web
       - name: Deploy to Web
         run:
-          cd appps/webs/web --prod --yes --token=${{ secrets.WEB_VERCEL_TOKEN }}
+          cd apps/webs/web
+          npx vercel --prod --yes
+          --token=${{ secrets.WEB_VERCEL_TOKEN }}
 
       # Deploy Admin
       - name: Deploy Admin
         run: |
-          cd apps/admins/admin npx vercel --prod --yes --token=${{ secrets.ADMIN_VERCEL_TOKEN }}
+          cd apps/admins/admin
+          npx vercel --prod --yes --token=${{ secrets.ADMIN_VERCEL_TOKEN }}
 
       # - run: npx vercel --prod --yes --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }}
 
