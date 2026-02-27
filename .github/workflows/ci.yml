@@ -28,12 +28,13 @@ jobs:
       # 🚀 Deploy Web
       # ==============================
       - name: Deploy Web
-        working-directory: apps/webs/web
+        # working-directory: apps/webs/web
         run: |
           npx vercel \
             --prod \
             --yes \
             --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }}
+            --scope=abdullahalmasudpersonals-projects
 
       # ==============================
       # 🚀 Deploy Admin
@@ -45,6 +46,7 @@ jobs:
             --prod \
             --yes \
             --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }}
+
 
       # 🚀 Deploy Web App
       # - name: Deploy Web to Vercel
