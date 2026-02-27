@@ -36,23 +36,37 @@ jobs:
       - name: Build Affected
         run: pnpm nx affected --target=build --base=origin/main --parallel=3
 
+
       # 🚀 Deploy Web App
       - name: Deploy Web to Vercel
         run: |
+          pnpm dlx vercel link \
+            --yes \
+            --project=mahsez-web \
+            --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }}
+
           pnpm dlx vercel deploy \
             --prod \
             --yes \
-            --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }} \
-            --project=mahsez-web
+            --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }}
 
-      # 🚀 Deploy admin App
-      - name: Deploy Admin to Vercel
-        run: |
-            pnpm dlx vercel deploy \
-            --prod \
-            --yes \
-            --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }} \
-            --project=mahsez-admin
+      # # 🚀 Deploy Web App
+      # - name: Deploy Web to Vercel
+      #   run: |
+      #     pnpm dlx vercel deploy \
+      #       --prod \
+      #       --yes \
+      #       --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }} \
+      #       --project=mahsez-web
+
+      # # 🚀 Deploy admin App
+      # - name: Deploy Admin to Vercel
+      #   run: |
+      #       pnpm dlx vercel deploy \
+      #       --prod \
+      #       --yes \
+      #       --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }} \
+      #       --project=mahsez-admin
 
 
 
