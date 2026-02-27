@@ -28,7 +28,6 @@ jobs:
       - name: Deploy Web
         run: |
           npx vercel deploy \
-            --prebuilt \
             --prod \
             --cwd apps/webs/web \
             --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }} \
@@ -39,38 +38,13 @@ jobs:
       - name: Deploy Admin
         run: |
           npx vercel deploy \
-            --prebuilt \
             --prod \
             --cwd apps/admins/admin \
             --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }} \
             --scope=abdullahalmasudpersonals-projects \
             --project=mahsez-admin
 
-      # ==============================
-      # 🚀 Deploy Web
-      # ==============================
-      # - name: Deploy Web
-      #   # working-directory: apps/webs/web
-      #   run: |
-      #     npx vercel \
-      #       --prod \
-      #       --yes \
-      #       --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }} \
-      #       --scope=abdullahalmasudpersonals-projects
-      #       --project=web
 
-      # # ==============================
-      # # 🚀 Deploy Admin
-      # # ==============================
-      # - name: Deploy Admin
-      #   # working-directory: apps/admins/admin
-      #   run: |
-      #     npx vercel \
-      #       --prod \
-      #       --yes \
-      #       --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }} \
-      #       --scope=abdullahalmasudpersonals-projects
-      #       --project=admin
 
 
       # 🚀 Deploy Web App
