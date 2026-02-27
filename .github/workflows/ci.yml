@@ -46,6 +46,29 @@ jobs:
             --prod \
             --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }}
 
+      # 🚀 Deploy admin App
+      - name: Deploy Admin to Vercel
+        run: |
+          npx vercel link \
+            --yes \
+            --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }} \
+            --scope=abdullahalmasudpersonals-projects \
+            --project=mahsez-admin
+
+          npx vercel pull \
+            --yes \
+            --environment=production \
+            --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }}
+
+          npx vercel build \
+            --prod \
+            --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }}
+
+          npx vercel deploy \
+            --prebuilt \
+            --prod \
+            --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }}
+
 
       # - name: Deploy Web
       #   run: npx vercel --prod --yes --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }}
