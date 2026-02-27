@@ -33,19 +33,20 @@ jobs:
           npx vercel \
             --prod \
             --yes \
-            --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }}
+            --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }} \
             --scope=abdullahalmasudpersonals-projects
 
       # ==============================
       # 🚀 Deploy Admin
       # ==============================
       - name: Deploy Admin
-        working-directory: apps/admins/admin
+        # working-directory: apps/admins/admin
         run: |
           npx vercel \
             --prod \
             --yes \
-            --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }}
+            --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }} \
+            --scope=abdullahalmasudpersonals-projects
 
 
       # 🚀 Deploy Web App
