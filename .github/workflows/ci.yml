@@ -35,6 +35,7 @@ jobs:
             --yes \
             --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }} \
             --scope=abdullahalmasudpersonals-projects
+            --project=web
 
       # ==============================
       # 🚀 Deploy Admin
@@ -47,6 +48,7 @@ jobs:
             --yes \
             --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }} \
             --scope=abdullahalmasudpersonals-projects
+            --project=admin
 
 
       # 🚀 Deploy Web App
