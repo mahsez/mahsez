@@ -21,51 +21,74 @@ jobs:
 
       - run: npm ci
 
+      # Build only affected apps
       - run: npx nx affected --target=build --base=origin/main --parallel=3
 
-      # 🚀 Deploy Web App
-      - name: Deploy Web to Vercel
+      # ==============================
+      # 🚀 Deploy Web
+      # ==============================
+      - name: Deploy Web
+        working-directory: apps/webs/web
         run: |
-          npx vercel link \
-            --yes \
-            --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }} \
-            --scope=abdullahalmasudpersonals-projects \
-            --project=mahsez-web
-
-          npx vercel pull \
-            --yes \
-            --environment=production \
-            --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }}
-
-          npx vercel build \
+          npx vercel \
             --prod \
+            --yes \
             --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }}
 
-          npx vercel deploy \
-            --prebuilt \
+      # ==============================
+      # 🚀 Deploy Admin
+      # ==============================
+      - name: Deploy Admin
+        working-directory: apps/admins/admin
+        run: |
+          npx vercel \
             --prod \
+            --yes \
             --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }}
+
+      # 🚀 Deploy Web App
+      # - name: Deploy Web to Vercel
+      #   run: |
+      #     npx vercel link \
+      #       --yes \
+      #       --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }} \
+      #       --scope=abdullahalmasudpersonals-projects \
+      #       --project=mahsez-web
+
+      #     npx vercel pull \
+      #       --yes \
+      #       --environment=production \
+      #       --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }}
+
+      #     npx vercel build \
+      #       --prod \
+      #       --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }}
+
+      #     npx vercel deploy \
+      #       --prebuilt \
+      #       --prod \
+      #       --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }}
 
       # 🚀 Deploy admin App
-      - name: Deploy Admin to Vercel
-        run: |
-          npx vercel link \
-            --yes \
-            --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }} \
-            --scope=abdullahalmasudpersonals-projects \
-            --project=mahsez-admin
+      # - name: Deploy Admin to Vercel
+      #   run: |
+      #     npx vercel link \
+      #       --yes \
+      #       --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }} \
+      #       --scope=abdullahalmasudpersonals-projects \
+      #       --project=mahsez-admin
 
-          npx vercel pull \
-            --yes \
-            --environment=production \
-            --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }}
+      #     npx vercel pull \
+      #       --yes \
+      #       --environment=production \
+      #       --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }}
 
-          npx vercel build \
-            --prod \
-            --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }}
+      #     npx vercel build \
+      #       --prod \
+      #       --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }}
 
-          npx vercel deploy \
-            --prebuilt \
-            --prod \
-            --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }}
+      #     npx vercel deploy \
+      #       --prebuilt \
+      #       --prod \
+      #       --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }}
 
