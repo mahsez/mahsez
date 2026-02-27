@@ -1,33 +1,33 @@
-name: Mahsez CI/CD
+# name: Mahsez CI/CD
 
-on:
-  push:
-    branches:
-      - main
+# on:
+#   push:
+#     branches:
+#       - main
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
+#     steps:
+#       - uses: actions/checkout@v3
+#         with:
+#           fetch-depth: 0
 
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 20
-          cache: 'npm'
+#       - uses: actions/setup-node@v3
+#         with:
+#           node-version: 20
+#           cache: 'npm'
 
-      - run: npm ci
+#       - run: npm ci
 
-      - run: npx nx affected --target=build --base=origin/main --parallel=3
+#       - run: npx nx affected --target=build --base=origin/main --parallel=3
 
-      - name: Deploy Web
-        run: npx vercel --prod --yes --cwd apps/web --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }}
+#       - name: Deploy Web
+#         run: npx vercel --prod --yes --cwd apps/web --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }}
 
-      - name: Deploy Admin
-        run: npx vercel --prod --yes --cwd apps/admin --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }}
+#       - name: Deploy Admin
+#         run: npx vercel --prod --yes --cwd apps/admin --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }}
 
       # # Diploy Web
       # - name: Deploy to Web
