@@ -29,8 +29,8 @@ jobs:
         run: |
           npx vercel link \
             --yes \
-            --project=mahsez-web
-            --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }} \
+            --project=mahsez-web \
+            --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }}
 
           npx vercel deploy \
             --prod \
