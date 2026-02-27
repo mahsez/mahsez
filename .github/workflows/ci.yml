@@ -10,26 +10,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: কোড চেকআউট করা
+      # Step 1: Checkout
       - name: Checkout Code
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      # Step 2: Node.js সেটআপ করা
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          # cache: 'pnpm'
-
-      # ✅ Setup pnpm
+      # Step 2: Setup pnpm first
       - uses: pnpm/action-setup@v4
         with:
           version: 9
           # run_install: false
 
-      # Step 3: ডিপেন্ডেন্সি ইনস্টল করা
+      # Step 3: Node.js & Enable pnpm cache
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      # Step 4: Install dependencies
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
 
@@ -54,6 +53,10 @@ jobs:
             --yes \
             --token=${{ secrets.MAHSEZ_VERCEL_TOKEN }} \
             --project=mahsez-admin
+
+
+
+
 
       # # 🚀 Deploy admin App
       # - name: Deploy Admin to Vercel
